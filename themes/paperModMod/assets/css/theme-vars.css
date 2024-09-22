@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'Bangers';
-    src: url('/fonts/Bangers-Regular.ttf')
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('/fonts/Montserrat-Regular.ttf');
-}
 
 :root {
     /* fonts */

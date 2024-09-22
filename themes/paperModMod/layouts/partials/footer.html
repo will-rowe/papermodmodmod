@@ -20,3 +20,4 @@
 <!-- Custom JS -->
 {{- $customjs := slice (resources.Get "js/main.js") | resources.Concat "assets/js/main.js" | minify }}
 <script defer src="{{ $customjs.Permalink }}" type="text/javascript"></script>
+<script src="https://kit.fontawesome.com/e88ed68ebe.js" crossorigin="anonymous"></script>
