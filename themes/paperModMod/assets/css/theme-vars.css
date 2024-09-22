@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Bangers';
-    src: url("{{ 'fonts/Bangers-Regular.ttf' | absURL }}") format('truetype');
+    src: url('fonts/Bangers-Regular.ttf')
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url("{{ 'fonts/Montserrat-Regular.ttf' | absURL }}") format('truetype');
+    src: url('fonts/Montserrat-Regular.ttf');
 }
 
 :root {
