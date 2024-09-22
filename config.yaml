@@ -24,23 +24,23 @@ menu:
   main:
     - identifier: home
       name: Home
-      url: /
+      url: /recipes
       weight: 1
     - identifier: about
       name: About
-      url: /about/
+      url: /recipes/about/
       weight: 10
     - identifier: search
       name: Search
-      url: /search/
+      url: /recipes/search/
       weight: 100
     - identifier: tags
       name: Tags
-      url: /tags/
+      url: /recipes/tags/
       weight: 1000
     - identifier: archive
       name: Archive
-      url: /archive/
+      url: /recipes/archive/
       weight: 10000
 
 # site content
