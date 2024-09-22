@@ -12,6 +12,7 @@ minify:
   minifyOutput: true
 pagination:
   pagerSize: 11
+canonifyURLs: true
 
 # paperMod
 outputs:
