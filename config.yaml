@@ -1,5 +1,5 @@
 # hugo
-baseURL: "https://willrowe.net"
+baseURL: "https://willrowe.net/recipes"
 title: "Will Rowe"
 theme: paperModMod
 googleAnalytics: UA-90659329-1
