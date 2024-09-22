@@ -43,11 +43,11 @@
 <footer class="page-footer">
   <nav class="pagination">
     {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{
+    <a class="prev" href="{{ $paginator.Prev.URL | relURL }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{
       i18n "prev_page" }}</a>
     {{- end }}
     {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }}<i class="fa fa-arrow-right"
+    <a class="next" href="{{ $paginator.Next.URL | relURL }}">{{ i18n "next_page" }}<i class="fa fa-arrow-right"
         aria-hidden="true"></i></a>
     {{- end }}
   </nav>
