@@ -21,8 +21,8 @@
 
         <!--menu control-->
         <div class="navGus">
-            <img id="navGusR" src="{{- .Site.Params.label.iconR -}}" alt="logo" aria-label="logo">
-            <img id="navGusL" style="display: none;" src="{{- .Site.Params.label.iconL -}}" alt="logo"
+            <img id="navGusR" src="{{- .Site.Params.label.iconR | absURL -}}" alt="logo" aria-label="logo">
+            <img id="navGusL" style="display: none;" src="{{- .Site.Params.label.iconL | absURL -}}" alt="logo"
                 aria-label="logo">
         </div>
 
