@@ -1,0 +1,22 @@
+<footer class="footer">
+    {{- if .Site.Copyright }}
+    <span>{{ .Site.Copyright | markdownify }}</span> {{- else }}
+    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></span> {{- end }}
+    <span>&middot;</span>
+    <span class="darkModeToggle">
+        <a id="darkModeToggle" accesskey="t" title="Toggle dark mode">
+            <i id="moon" class="far fa-moon"></i>
+            <i id="lightbulb" class="far fa-lightbulb"></i>
+        </a>
+    </span>
+</footer>
+
+<button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</button>
+
+<!-- Custom JS -->
+{{- $customjs := slice (resources.Get "js/main.js") | resources.Concat "assets/js/main.js" | minify }}
+<script defer src="{{ $customjs.Permalink }}" type="text/javascript"></script>

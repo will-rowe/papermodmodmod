@@ -1,0 +1,16 @@
+{{- $pageurl := .Permalink }} {{- $title := .Title }}
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on email" href="mailto:?&subject={{ $title }} recipe&body=View recipe: {{ $pageurl }}">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on whatsapp" href="https://api.whatsapp.com/send?text={{ $title }}%20-%20{{ $pageurl }}">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on twitter" href="https://twitter.com/intent/tweet/?text={{ $title }}&amp;url={{ $pageurl }}&amp;hashtags={{- $.Scratch.Get " tags " -}}">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on facebook" href="https://facebook.com/sharer/sharer.php?u={{ $pageurl }}">
+        <i class="fab fa-facebook"></i>
+    </a>
+</div>

@@ -1,0 +1,53 @@
+<!--Darkmode toggle-->
+<script type="text/javascript">
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        {{- $currentPage := . }}
+
+        <!--title-->
+        <div class="navTitle">
+            <a href="{{ "" | absLangURL }}" accesskey="h">
+                {{- .Site.Params.label.text | default .Site.Title -}}
+            </a>
+        </div>
+
+        <!--menu control-->
+        <div class="navGus">
+            <img id="navGusR" src="{{- .Site.Params.label.iconR -}}" alt="logo" aria-label="logo">
+            <img id="navGusL" style="display: none;" src="{{- .Site.Params.label.iconL -}}" alt="logo"
+                aria-label="logo">
+        </div>
+
+        <!--fake loader-->
+        <div class="loader">
+            <div class="loaderBox redColour"></div>
+            <div class="loaderBox orangeColour grower"></div>
+            <div class="loaderBox yellowColour"></div>
+        </div>
+    </nav>
+
+    <div class="navMenu">
+        <a href="javascript:void(0)" class="navCloser">&times;</a>
+        <p>RECIPES</p>
+        <ul>
+            {{- range .Site.Menus.main }} {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/"
+            .URL) ) | absLangURL }} {{- $page_url:= $currentPage.Permalink | absLangURL }}
+            <li>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }}">
+                    <span {{- if eq $menu_item_url $page_url }} class="activeNavLink" {{- end }}>
+                        {{ .Name }}
+                    </span>
+                </a>
+            </li>
+            {{- end -}}
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,59 @@
+<div class="recipe-list">
+    <h2>Ingredients -</h2>
+    {{ $numSublists := len .Params.Ingredients }}
+    <div>
+        {{- range $subTitle, $ingredients := .Params.Ingredients -}}
+        {{ if gt $numSublists 1 }}
+        <h3>{{ $subTitle }}</h3>
+        {{ end }}
+        <ul class="two-column-list">
+            {{ range sort $ingredients "name" "asc" }}
+            {{ $ingredientLink := index $.Site.Params.shoppingLinks .name }}
+            <li>
+                <div class="column-left">
+
+                    <p class="ingredient">
+                        <span class="ingredient__amount_container">
+                            {{ if .units }}
+                            {{ if gt (len .units) 2 }}
+                            <span class="ingredient__amount">{{ .amount }}</span><span class="ingredient__units"> {{
+                                .units
+                                }}</span>
+                            {{ else }}
+                            <span class="ingredient__amount">{{ .amount }}</span><span class="ingredient__units">{{
+                                .units
+                                }}</span>
+                            {{ end }}
+                            {{ else }}
+                            <span class="ingredient__amount">{{ .amount }}</span>
+                            {{ end }}
+                        </span>
+                    </p>
+                </div>
+                <div class="column-right">
+                    <p>
+                        {{ if $ingredientLink }}
+                        <a href="{{ $ingredientLink }}" target="_blank">{{ .name | markdownify | safeHTML }}</a>
+                        {{ else }}
+                        {{ .name | markdownify | safeHTML }}
+                        {{ end }}
+                    </p>
+                </div>
+
+            </li>
+            {{ end }}
+        </ul>
+        {{- end -}}
+    </div>
+    {{- if (.Params.Stats) -}}
+    <div class="servingAdjustment">
+        <p>Adjust number of {{ .Params.Stats.Serving.Units }}:</p>
+        <div class="serve-input">
+            <button class="spinner decrement">-</button>
+            <input class="qtyInputLoose" id="serve_size" type=number min=1 max=100 value={{ .Params.Stats.Serving.Number
+                }}>
+            <button class="spinner increment">+</button>
+        </div>
+    </div>
+    {{- end -}}
+</div>

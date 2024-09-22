@@ -1,0 +1,98 @@
+{{- define "main" }}
+
+<div class="container" id="recipe">
+
+    <section class="recipe-header">
+
+        <img id="modalImgTrigger" src="{{ (.Params.cover.image) | absURL }}" alt="{{ .Params.cover.alt }}">
+        <div id="modalImg" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImgContent">
+        </div>
+
+        <div class="recipe-details">
+
+            <!---title and summary-->
+            <h1>
+                <span class="separator">
+                    {{ .Title }}
+                </span>
+            </h1>
+
+            {{- if .Draft }}
+            <span class="separator">
+                <h3> ! draft ! </h3>
+            </span>
+            {{- end }}
+
+            <!---summary-->
+            <p class="recipe-summary">{{ .Summary}}</p>
+
+            <!---tags-->
+            {{- if .Params.tags }}
+            <ul class="recipe-tags">
+                {{- range ($.GetTerms "tags") }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                </li>
+                {{- end }}
+            </ul>
+            {{- end }}
+
+            <!--metadata-->
+            <div class="recipe-meta">
+                {{- partial "recipe_meta.html" . -}}
+            </div>
+
+            <h1>
+                <span class="separator"><i class="fas fa-egg fa-xs"></i></span>
+            </h1>
+
+        </div>
+    </section>
+
+</div>
+
+<!--details-->
+<div class="recipe-container">
+
+    <!--stats-->
+    {{- if (.Params.Stats) -}}
+    {{- partial "recipe_stats.html" . -}}
+    {{- end -}}
+
+    <!--recipe-->
+    <div class="recipe">
+        {{- if (.Params.Ingredients) -}}
+        {{- partial "recipe_ingredients.html" . -}}
+        {{- end -}}
+        {{- if (.Content) -}}
+        {{ if (eq .Params.Posttype "recipe") }}
+        {{- partial "recipe_method.html" .Content -}}
+        {{ else }}
+        <div>
+            {{ .Content }}
+        </div>
+        {{ end }}
+        {{- end -}}
+
+        {{- if (.Params.Notes) -}}
+        <section class="notes">
+            <h2>Notes -</h2>
+            {{ range .Params.Notes }}
+            <p>{{ . | markdownify | safeHTML }}</p>
+            {{ end }}
+        </section>
+
+        <!---{{- partial "recipe_notes.html" . -}} --->
+        {{- end -}}
+
+    </div>
+</div>
+
+{{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+{{- partial "share_icons.html" . -}}
+{{- end }}
+
+
+{{- end }}

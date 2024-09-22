@@ -1,0 +1,25 @@
+<div class="stats">
+    <div class="stat servings">
+        <span><i class="fas fa-utensils"></i></span>
+        <div class="metrics">
+            <p class="category">YIELDS</p>
+            <p class="value"><span id=serve_size_stats>{{.Params.Stats.Serving.Number}}</span>
+                {{.Params.Stats.Serving.Units}}
+            </p>
+        </div>
+    </div>
+    <div class="stat prep">
+        <span><i class="fas fa-stopwatch"></i></span>
+        <div class="metrics">
+            <p class="category">PREP TIME</p>
+            <p class="value">{{.Params.Stats.Preptime}}</p>
+        </div>
+    </div>
+    <div class="stat cook">
+        <span><i class="fas fa-temperature-high"></i></span>
+        <div class="metrics">
+            <p class="category">COOK TIME</p>
+            <p class="value">{{.Params.Stats.Cooktime}}</p>
+        </div>
+    </div>
+</div>

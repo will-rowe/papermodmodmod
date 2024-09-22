@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Bangers';
+    src: url('/fonts/Bangers-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.ttf');
+}
+
+:root {
+    /* fonts */
+    --header-font: 'Bangers', cursive;
+    --main-font: 'Montserrat', sans-serif;
+    --nav-font-size: 1.5rem;
+    --nav-font-weight: 700;
+    --heading-font-size: 2em;
+    --heading-font-weight: 500;
+    /* colour scheme */
+    --col1: rgba(249, 250, 244, 1);
+    --col2: rgba(74, 97, 99, 1);
+    --col3: rgba(241, 122, 126, 1);
+    --col4: rgba(249, 166, 108, 1);
+    --col5: rgba(255, 201, 75, 1);
+    /* site vars */
+    --header-height: 5rem;
+    --logo-height: 3rem;
+    --loader-height: 0.5rem;
+    --footer-height: 5rem;
+    --menu-width: 20vw;
+    --gap: 1.2rem;
+    --icon-height: 1.5rem;
+    --content-gap: 1rem;
+    --column-gap: 4rem;
+    --main-width: 80vw;
+    --radius: 10px;
+    --theme: var(--col1);
+    --entry: var(--col1);
+    --primary: var(--col2);
+    --secondary: rgba(0, 0, 0, 0.56);
+    --tertiary: rgba(0, 0, 0, 0.16);
+    --content: rgba(74, 97, 99, 0.64);
+    --code-bg: var(--col1);
+    --border: var(--col2);
+    --highlight: var(--col3);
+    --transition-speed: 0.4s;
+}
+
+.dark {
+    --theme: #1d1e20;
+    --entry: #2e2e33;
+    --primary: rgba(255, 255, 255, 0.84);
+    --secondary: rgba(255, 255, 255, 0.56);
+    --tertiary: rgba(255, 255, 255, 0.16);
+    --content: rgba(255, 255, 255, 0.64);
+    --code-bg: #37383e;
+    --border: #5b5d67
+}
+
+.list {
+    background: var(--code-bg)
+}
+
+.dark.list {
+    background: var(--theme)
+}
+
+@media screen and (max-width:600px) {
+     :root {
+        --gap: 0.5rem;
+        --menu-width: 80vw;
+    }
+}

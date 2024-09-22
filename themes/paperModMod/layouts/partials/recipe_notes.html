@@ -1,0 +1,15 @@
+<div class="recipe-list">
+    <h2>Notes -</h2>
+    <div>
+        <ul>
+            {{ range .Params.Notes }}
+            <li>
+                <i class="fas fa-egg fa-1x"></i>
+                <p>
+                    {{ . | markdownify | safeHTML }}
+                </p>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>

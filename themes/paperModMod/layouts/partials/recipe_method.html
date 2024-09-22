@@ -1,0 +1,20 @@
+{{ $stepNumber := 1 }}
+<div class="recipe-list">
+    <h2>Method -</h2>
+    <div>
+        {{- range $index, $line := split . "\n" -}}
+            {{ if in $line "<li>" }}
+                {{ $line = replace $line "<li>" ""}}
+                {{ $line = replace $line "</li>" ""}}
+                <li>
+                    <i class="fas fa-egg fa-2x" step="{{ $stepNumber }}"></i>
+                    <p>{{ $line | safeHTML }}</p>
+                </li>
+                {{ $stepNumber = add $stepNumber 1 }}
+            {{ else }} 
+                {{ $line | safeHTML }}
+                {{ $stepNumber = 1 }}
+            {{ end }}
+        {{- end -}}
+    </div>
+</div>

@@ -1,0 +1,191 @@
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    background-color: var(--theme);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: var(--header-height);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
+.navTitle,
+.navGus {
+    display: flex;
+    flex-wrap: inherit;
+    line-height: var(--header-height);
+    font-size: var(--nav-font-size);
+    font-weight: var(--nav-font-weight);
+    margin: auto;
+    margin-left: var(--gap);
+    margin-right: var(--gap);
+    cursor: pointer;
+}
+
+.navGus .img {
+    height: var(--logo-height);
+}
+
+.duckWalkOff {
+    animation-name: duckWalkOff;
+    animation-duration: var(--transition-speed);
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+}
+
+.duckWalkOn {
+    animation-name: duckWalkOn;
+    animation-duration: var(--transition-speed);
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+}
+
+.loader {
+    display: flex;
+    width: 100%;
+    height: var(--loader-height);
+    margin: auto;
+}
+
+.loaderBox {
+    height: var(--loader-height);
+    margin: auto;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.redColour {
+    background-color: var(--col3);
+}
+
+.orangeColour {
+    background-color: var(--col4);
+}
+
+.yellowColour {
+    background-color: var(--col5);
+}
+
+.grower {
+    animation: grow 0.5s ease-out 0s alternate backwards;
+    animation-iteration-count: 2;
+}
+
+.navMenu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    background-color: var(--col2);
+    overflow: hidden;
+    transition: var(--transition-speed);
+    padding-top: var(--header-height);
+}
+
+.navMenu .navCloser {
+    position: absolute;
+    top: 0;
+    right: calc(var(--menu-width) / 10);
+    font-size: var(--logo-height);
+    line-height: var(--header-height);
+    color: var(--col3);
+}
+
+.navMenu.active {
+    width: var(--menu-width);
+}
+
+.navMenu .navCloser:hover {
+    color: var(--col1);
+}
+
+.navMenu p {
+    line-height: var(--logo-height);
+    text-transform: uppercase;
+    font-family: var(--header-font);
+    font-size: var(--logo-height);
+    color: var(--col3);
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity var(--transition-speed) linear;
+}
+
+.navMenu.active p {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navMenu a {
+    line-height: 5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity var(--transition-speed) linear;
+}
+
+.navMenu.active a {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navMenu ul li:not(.activeNavLink)::after {
+    opacity: 0.2;
+}
+
+.navMenu ul li:not(.activeNavLink):hover a {
+    color: var(--col1);
+}
+
+.activeNavLink {
+    color: var(--col1);
+    border-bottom: var(--loader-height) solid var(--col3);
+    padding-bottom: 10px;
+}
+
+@keyframes duckWalkOff {
+    0% {
+        -webkit-transform: translateX(0vw);
+        -moz-transform: translateX(0vw);
+        -ms-transform: translateX(0vw);
+        transform: translateX(0vw);
+    }
+    100% {
+        -webkit-transform: translateX(var(--menu-width));
+        -moz-transform: translateX(var(--menu-width));
+        -ms-transform: translateX(var(--menu-width));
+        transform: translateX(var(--menu-width));
+    }
+}
+
+@keyframes duckWalkOn {
+    0% {
+        -webkit-transform: translateX(var(--menu-width));
+        -moz-transform: translateX(var(--menu-width));
+        -ms-transform: translateX(var(--menu-width));
+        transform: translateX(var(--menu-width));
+    }
+    100% {
+        -webkit-transform: translateX(0vw);
+        -moz-transform: translateX(0vw);
+        -ms-transform: translateX(0vw);
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes grow {
+    100% {
+        flex-grow: 12;
+    }
+}
